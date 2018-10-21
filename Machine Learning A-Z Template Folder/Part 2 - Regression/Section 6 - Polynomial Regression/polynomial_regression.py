@@ -46,4 +46,12 @@ plt.plot(X, lin_reg_2.predict(X_poly), color = 'blue')
 plt.title('polynomial linear regression')
 plt.xlabel('postion')
 plt.ylabel('salary')
-plt.show()
+# plt.show()
+
+# Predicting a new result with Linear Regression
+prediction_lin = lin_reg.predict(6.5)
+print(prediction_lin)
+
+# Predicting a new result with Polynomial Linear Regression
+prediction_poly = lin_reg_2.predict(poly_reg.fit_transform(6.5))
+print(prediction_poly)
