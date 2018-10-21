@@ -46,13 +46,12 @@ y_pred = regressor.predict(X_test)
 
 
 def backwardElimination(x, sl):
-    lengthOfX = len(x[0])
-    for i in range(0, lengthOfX):
+    lengthOfSingleItemInX = len(x[0])
+    for i in range(0, lengthOfSingleItemInX):
         regressor_OLS = sm.OLS(y, x).fit()
-        print(regressor_OLS.summary())
         maxVar = max(regressor_OLS.pvalues).astype(float)
         if maxVar > sl:
-            for j in range(0, lengthOfX - i):
+            for j in range(0, lengthOfSingleItemInX - i):
                 if (regressor_OLS.pvalues[j].astype(float) == maxVar):
                     x = np.delete(x, j, 1)
     print(regressor_OLS.summary())
